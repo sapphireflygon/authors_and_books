@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form action="/books/newbook" method="post">
+    <div>
+        <label for="title">Book Title:</label>
+        <input type="text" id="title" name="title" placeholder="Book title goes here" required autofocus>
+    </div>
+
+    <div>
+        <label for="description">Description:</label>
+        <input type="text" id="description" name="description" placeholder="What's the book about?" required>
+    </div>
+
+    <div>
+        <label for="year-published">Year Published:</label>
+        <input type="number" id="year-published" name="year_published" placeholder="Year" required> 
+    </div>
+    <div>
+        <label for="author">Author:</label>
+        <select id="author" name="author_id">
+            {% for author in all_authors %}
+                <option value="{{ author.id }}">{{ author.first_name }} {{author.last_name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit">Add Book</button>
+
+</form>
+{% endblock %}

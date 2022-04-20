@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for book in all_books %}
+    <div class="talk">
+        <div class="content">
+            <a href="/books/{{book.id}}">Go to Book</a>
+            Title: {{book.title}}
+            Author: {{book.author.first_name}} {{book.author.last_name}}
+            Description: {{book.description}}
+            Year Published: {{book.year_published}}
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}
